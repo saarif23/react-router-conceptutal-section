@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 
 const MainLayout = () => {
     return (
@@ -8,19 +8,32 @@ const MainLayout = () => {
                     <h3 className="text-xl font-bold">Amazon</h3>
                 </div>
                 <ul className="flex gap-7">
-                    <li>
-                        <a href="/">Home</a>
-                    </li>
-                    <li>
-                        <a href="/products">Products</a>
-                    </li>
-                    <li>
-                        <a href="/about">About</a>
-                    </li>
-                   
-                    <li>
-                        <a href="/dashboard">Dashboard</a>
-                    </li>
+
+                    <NavLink
+                        to="/"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "bg-yellow-400 rounded-xl py-1 px-3" : ""}>
+                        Home
+                    </NavLink>
+                    <NavLink
+                        to="/products"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "bg-yellow-400 rounded-xl py-1 px-3" : ""}>
+                        Products
+                    </NavLink>
+                    <NavLink
+                        to="/about"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "bg-yellow-400 rounded-xl py-1 px-3" : ""}>
+                        About
+                    </NavLink>
+                    <NavLink
+                        to="/dashboard"
+                        className={({ isActive, isPending }) =>
+                            isPending ? "pending" : isActive ? "bg-yellow-400 rounded-xl py-1 px-3" : ""}>
+                        Dashboard
+                    </NavLink>
+
                 </ul>
             </nav>
             <div className="max-w-7xl mx-auto min-h-screen">
